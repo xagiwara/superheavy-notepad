@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[[source]]
+url = "https://download.pytorch.org/whl/cu124"
+verify_ssl = true
+name = "torch"
+
+[packages]
+torch = { index = "torch", version = "*" }
+uvicorn = "*"
+transformers = "*"
+accelerate = "*"
+peft = "*"
+fastapi = "*"
+
+[dev-packages]
+httpx = "*"
+tqdm = "*"
+pip-licenses = "*"
+
+[requires]
+python_version = "3.13"
+
+[scripts]
+build = "python -m builder"

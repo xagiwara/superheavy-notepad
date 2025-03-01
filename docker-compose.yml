@@ -1,0 +1,42 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: .dev/backend.dockerfile
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: "curl -f http://localhost:8000/api/docs"
+      interval: 1m30s
+      timeout: 30s
+      retries: 5
+      start_period: 1s
+    volumes:
+      - ./backend/app:/app/backend/app
+      - ${HF_HUB_CACHE}:/var/hf_hub_cache:ro
+      - ${FINETUNED_DIR}:/var/finetuned:ro
+    environment:
+      - HF_HUB_CACHE=/var/hf_hub_cache
+      - FINETUNED_DIR=/var/finetuned
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+  frontend:
+    build:
+      context: .
+      dockerfile: .dev/frontend.dockerfile
+    ports:
+      - "5173:5173"
+    depends_on:
+      backend:
+        # condition: service_started
+        condition: service_healthy
+    volumes:
+      - ./frontend/src:/app/frontend/src
+    environment:
+      - SERVER_NAME=backend

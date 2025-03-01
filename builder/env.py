@@ -1,0 +1,21 @@
+import os
+
+FRONTEND_DIR = os.environ["BUILD_FRONTEND_DIR"]
+BACKEND_DIR = os.environ["BUILD_BACKEND_DIR"]
+ELECTRON_DIR = os.environ["BUILD_ELECTRON_DIR"]
+CACHE_DIR = os.environ["BUILD_CACHE_DIR"]
+BUILD_DIR = os.environ["BUILD_DIR"]
+BUILD_ARCHIVE = os.environ["BUILD_ARCHIVE"]
+FINETUNED_DIR = os.environ["FINETUNED_DIR"]
+
+print(
+    {
+        "FRONTEND_DIR": FRONTEND_DIR,
+        "BACKEND_DIR": BACKEND_DIR,
+        "ELECTRON_DIR": ELECTRON_DIR,
+        "CACHE_DIR": CACHE_DIR,
+        "BUILD_DIR": BUILD_DIR,
+        "BUILD_ARCHIVE": BUILD_ARCHIVE,
+        "FINETUNED_DIR": FINETUNED_DIR,
+    }
+)

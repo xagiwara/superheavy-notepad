@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+:root {
+  color-scheme: dark;
+
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  text-shadow: 0.05em 0.05em 0.05em rgba(0, 0, 0, 0.5);
+
+  --text-font: 'Noto Sans JP', sans-serif;
+  --heading-font: 'Noto Serif JP', serif;
+  --monospace-font: 'Inconsolata', monospace;
+
+  font-family: var(--text-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+section.page {
+    min-height: 100dvh;
+    box-sizing: border-box;
+}
+
+.jacket {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto 1fr;
+
+    .upper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .lower {
+        background: #424242;
+        box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.5) inset;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        padding: 1em;
+
+        h2 {
+            margin: 1rem;
+            font-size: 1.5em;
+        }
+
+        line-height: 2em;
+
+    }
+
+    .download-area {
+        box-shadow: 0 1em 1em -1em rgba(0, 0, 0, 0.5) inset;
+        background: #616161;
+        text-align: center;
+        font-size: 0.8rem;
+
+        .download-button {
+            display: inline-block;
+            background-color: #424242;
+            padding: 0.5em 1em;
+            border-radius: 0.25em;
+            margin: 0.5em;
+            box-shadow: 0 0.25em 0.25em -0.25em rgba(0, 0, 0, 0.5);
+            transition: background-color 0.2s;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.87);
+            font-size: 1rem;
+
+            &:hover {
+                background-color: #757575;
+            }
+        }
+    }
+
+    > * {
+        padding: 1em;
+    }
+}
+
+.hash {
+    font-size: 0.8rem;
+
+    .sha256 {
+        font-family: var(--monospace-font);
+    }
+}
+
+kbd {
+    font-family: var(--monospace-font);
+    &::before {
+        content: '<';
+    }
+    &::after {
+        content: '>';
+    }
+}

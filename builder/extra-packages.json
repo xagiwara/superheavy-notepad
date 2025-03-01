@@ -1,0 +1,9 @@
+[
+  {
+    "name": "llm-jp/llm-jp-3-1.8b",
+    "author": "Hirokazu Kiyomaru, Takashi Kodama",
+    "url": "https://huggingface.co/llm-jp/llm-jp-3-1.8b",
+    "license": "Apache-2.0",
+    "license_text_url": "https://www.apache.org/licenses/LICENSE-2.0.txt"
+  }
+]

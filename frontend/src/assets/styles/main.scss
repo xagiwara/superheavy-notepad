@@ -1,0 +1,54 @@
+@use './fonts';
+@use './icons';
+
+html {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+body {
+  color-scheme: light dark;
+  background: light-dark(#fafafa, #212121);
+  color: light-dark(#212121, #fafafa);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  box-sizing: border-box;
+
+  &.theme-light {
+    color-scheme: light;
+  }
+
+  &.theme-dark {
+    color-scheme: dark;
+  }
+}
+
+input, textarea, select {
+  background: transparent;
+}
+
+button, input[type=button], input[type=submit], input[type=reset] {
+  appearance: none;
+  box-sizing: border-box;
+  border: none;
+  font-size: unset;
+  font-family: unset;
+  color: unset;
+  background: light-dark(#E0E0E0, #424242);
+  padding: 0.25em 0.5em;
+  line-height: 1.5em;
+
+  &:disabled {
+    opacity: 0.5;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:hover:not(:disabled) {
+    background: light-dark(#BDBDBD, #757575);
+  }
+}
